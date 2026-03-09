@@ -30,10 +30,39 @@ body::before{
 body::after{
   content:'';position:fixed;inset:0;
   background:
-    radial-gradient(ellipse 60% 50% at 20% 15%,rgba(99,102,241,0.08) 0%,transparent 60%),
-    radial-gradient(ellipse 50% 40% at 82% 82%,rgba(168,85,247,0.06) 0%,transparent 60%);
+    radial-gradient(ellipse 55% 45% at 15% 10%, rgba(99,102,241,0.18) 0%,transparent 55%),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(168,85,247,0.15) 0%,transparent 55%),
+    radial-gradient(ellipse 35% 30% at 80% 10%, rgba(99,102,241,0.08) 0%,transparent 50%),
+    radial-gradient(ellipse 40% 35% at 20% 88%, rgba(168,85,247,0.08) 0%,transparent 50%);
   pointer-events:none;z-index:0;
 }
+
+/* Floating orbs behind card */
+.bg-orb{
+  position:fixed;border-radius:50%;pointer-events:none;z-index:0;
+  filter:blur(70px);opacity:0.5;
+}
+.bg-orb-1{
+  width:380px;height:380px;
+  background:radial-gradient(circle, rgba(99,102,241,0.35) 0%, transparent 70%);
+  top:-80px;left:calc(50% - 300px);
+  animation:orbDrift1 12s ease-in-out infinite;
+}
+.bg-orb-2{
+  width:320px;height:320px;
+  background:radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%);
+  bottom:-60px;right:calc(50% - 280px);
+  animation:orbDrift2 15s ease-in-out infinite;
+}
+.bg-orb-3{
+  width:200px;height:200px;
+  background:radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%);
+  top:40%;left:calc(50% + 200px);
+  animation:orbDrift3 18s ease-in-out infinite;
+}
+@keyframes orbDrift1{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,30px)}}
+@keyframes orbDrift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-35px,-25px)}}
+@keyframes orbDrift3{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,35px)}}
 
 /* Card with animated gradient border */
 .card-wrapper{
@@ -309,6 +338,10 @@ code{background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;font-fa
 </style>
 </head>
 <body>
+
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
 
 <div class="card-wrapper">
 <div class="card">
